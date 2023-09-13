@@ -12,9 +12,13 @@
     --violet-blue: hsla(256, 72%, 46%, 1);
     --persian-blue: hsla(241, 72%, 46%, 0);
     --button: hsla(221, 66%, 10%, 1);
+    --white: #fff;
+    --general-text: hsla(282, 10%, 100%, 0.7);
 }
 
 body {
+    margin: 0;
+    padding: 0;
     font-family: 'Hanken Grotesk', sans-serif;
 }
 
@@ -38,8 +42,51 @@ body {
 .card__results {
     width: 50%;
     height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    text-align: center;
     background: var(--light-royal-blue);
     border-radius: 30px;
+}
+
+.card__results p:nth-child(1) {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.card__results p:nth-child(4) {
+    display: inline-block;
+    width: 65%;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.card__results .general-text {
+    color: var(--general-text);
+}
+
+.card__results--score {
+    padding: 60px;
+    border-radius: 50%;
+    background-color: var(--violet-blue);
+}
+
+.card__results--score p:nth-child(1) {
+    color: var(--white);
+    font-size: 60px;
+    font-weight: 800;
+}
+
+.card__results--score p:nth-child(2) {
+    color: var(--general-text);
+}
+
+.card__results--result {
+    color: var(--white);
+    font-size: 30px;
+    font-weight: 700;
 }
 
 .card__details {
@@ -48,12 +95,12 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 20px;
+    gap: 15px;
 }
 
 .card__details-title {
     margin-top: 50px;
-    margin-left: 40px;
+    margin-left: 20px;
     font-weight: 700;
     font-size: 28px;
 }
@@ -93,9 +140,9 @@ body {
 
 .card__details button {
     width: 80%;
-    align-self: center;
-    padding: 15px;
     margin-bottom: 50px;
+    padding: 15px;
+    align-self: center;
     border: none;
     background: var(--button);
     color: white;
@@ -111,5 +158,38 @@ body {
 
 .gradient {
     background: var(--cobalt-blue);
-    background: linear-gradient(0deg, var(--light-royal-blue) 0%, var(--light-slate-blue) 100%);
+    background: linear-gradient(0deg, var(--cobalt-blue) 0%, var(--light-slate-blue) 100%);
+}
+
+.reverse-gradient {
+    background: var(--persian-blue);
+    background: linear-gradient(0deg, var(--persian-blue) 0%, var(--cobalt-blue) 100%);
+}
+
+@media (max-width: 400px) {
+    .container {
+        height: 100%;
+    }
+    .card {
+        flex-direction: column;
+        height: auto;
+    }
+    .card__results {
+        width: 100%;
+        height: auto;
+        gap: 15px;
+        padding-bottom: 20px;
+        padding-top: 20px;
+        border-radius: 0 0 30px 30px;
+    }
+    .card__results--score {
+        padding: 30px;
+        border-radius: 50%;
+    }
+    .card__details {
+        width: 100%;
+    }
+    .card__details-title {
+        margin-top: 20px;
+    }
 }
